@@ -80,13 +80,13 @@ const Hero = () => {
 
   return (
     <div className="flex flex-col lg:flex-row">
-      <div className="w-full lg:w-1/4 bg-gray-200 p-2">
+      <div className="w-full lg:w-1/4 bg-gray-200 p-4">
         <h2 className="text-xl font-bold mb-4 bg-gray-300 p-2">Our Services</h2>
         <ul className="list-none">
           {services.map((service, index) => (
             <li 
               key={index} 
-              className="text-black mb-1 hover:bg-gray-300 p-1 rounded transition-colors duration-200"
+              className="text-black mb-1 hover:bg-gray-300 p-2 rounded transition-colors duration-200"
             >
               {service}
             </li>
@@ -99,7 +99,7 @@ const Hero = () => {
             {utilities.map((utility, index) => (
               <li 
                 key={index} 
-                className="text-black mb-1 hover:bg-gray-300 p-1 rounded transition-colors duration-200"
+                className="text-black mb-1 hover:bg-gray-300 p-2 rounded transition-colors duration-200"
               >
                 {utility}
               </li>
@@ -109,10 +109,10 @@ const Hero = () => {
       </div>
 
       <div className="w-full lg:w-2/4 p-4">
-        <div className="max-w-4xl">
-          <h1 className="text-2xl font-bold bg-gray-200 text-blue-600 p-1 mb-4">Welcome to Ankur A Gupta & Associates</h1>
-          <div className="flex items-center mb-4">
-            <div className="mr-4">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-2xl lg:text-3xl font-bold bg-gray-200 text-blue-600 p-2 mb-4">Welcome to Ankur A Gupta & Associates</h1>
+          <div className="flex flex-col lg:flex-row items-center mb-4">
+            <div className="mb-4 lg:mb-0 lg:mr-4">
               <Image 
                 src="/image1.png" 
                 alt="Image description"
@@ -121,13 +121,13 @@ const Hero = () => {
               />
             </div>
             <div>
-              <p className='text-xl'>
+              <p className='text-lg lg:text-xl'>
                 Ankur A Gupta & Associates is a Proprietorship Chartered Accountancy <br/> Firm established in the year 2012.
                 We are a practicing Chartered <br/> Accountancy firm specializing in auditing, accounting, taxation, <br/> management services, corporate services etc.
               </p>
             </div>
           </div>
-          <div className="mt-8 text-xl">
+          <div className="mt-8 text-lg lg:text-xl">
             <p>
               Our aim is to provide real value to our clients in return for their confidence in us as their consultants.<br/>
               Being fresh in the industry, we have the zeal to excel in our service and provide the highest degree of <br/> customer satisfaction to our clients.
@@ -135,13 +135,13 @@ const Hero = () => {
             </p>
           </div>
           
-          <h1 className="text-2xl font-bold bg-gray-200 text-blue-600 mt-12 p-1 mb-4">Vision</h1>
-          <p className="mb-4 text-xl">
+          <h1 className="text-2xl lg:text-3xl font-bold bg-gray-200 text-blue-600 mt-12 p-2 mb-4">Vision</h1>
+          <p className="mb-4 text-lg lg:text-xl">
             To be amongst the most respected and leading professional firms by providing quality professional service with highest standards of integrity, specialization & dedication to domestic as well as global clients.
           </p>
-          <div className="flex space-x-2">
+          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
             <div className="flex-1 text-center">
-              <p className="mb-2 mr-36 text-lg">Accounting</p>
+              <p className="mb-2 text-lg">Accounting</p>
               <Image 
                 src="/image1.png" 
                 alt="Accounting Image"
@@ -150,7 +150,7 @@ const Hero = () => {
               />
             </div>
             <div className="flex-1 text-center">
-              <p className="mb-2 mr-36 text-lg">Auditing</p>
+              <p className="mb-2 text-lg">Auditing</p>
               <Image 
                 src="/image2.png" 
                 alt="Auditing Image"
@@ -159,7 +159,7 @@ const Hero = () => {
               />
             </div>
             <div className="flex-1 text-center">
-              <p className="mb-2 mr-36 text-lg">Income Tax</p>
+              <p className="mb-2 text-lg">Income Tax</p>
               <Image 
                 src="/image3.png" 
                 alt="Income Tax Image"
@@ -171,64 +171,54 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="w-full lg:w-1/4 bg-white p-2 border border-gray-300">
+      <div className="w-full lg:w-1/4 bg-white p-4 border-l border-gray-300">
         <h2 className="text-xl font-bold mb-4 bg-gray-300 p-2">What's New</h2>
-        <div 
-          className="overflow-hidden h-96"
+        <div
+          className="overflow-auto h-96"
+          ref={scrollContainerRef}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          ref={scrollContainerRef}
         >
-          <ul className="list-none">
-            {whatsNew.map((news, index) => {
-              const [date, ...rest] = news.split(': ');
-              return (
-                <li 
-                  key={index} 
-                  className="text-black mb-1 p-1"
-                >
-                  <span className="font-bold">{date}</span>: {rest.join(': ')}
-                </li>
-              );
-            })}
-          </ul>
+          {whatsNew.map((item, index) => (
+            <div key={index} className="py-2 px-4 border-b border-gray-200">
+              {item}
+            </div>
+          ))}
         </div>
-        <div className="w-full lg:w-full bg-gray-200 p-4 mt-8">
-        <h2 className="text-xl font-bold bg-gray-300 p-2 mb-4">Client/Staff Login</h2>
-        <p className="text-lg mb-4">
-          Please enter your credentials below to access the client or staff portal.
-        </p>
-        <form className="space-y-4">
-          <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-              Username
-            </label>
-            <input 
-              id="username" 
-              type="text" 
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-              placeholder="Enter your username"
-            />
-          </div>
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
-            <input 
-              id="password" 
-              type="password" 
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-              placeholder="Enter your password"
-            />
-          </div>
-          <button 
-            type="submit" 
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
-          >
-            Login
-          </button>
-        </form>
-      </div>
+
+        <div className="mt-8 p-4 bg-gray-100 border border-gray-300 rounded">
+          <h2 className="text-xl font-bold mb-4">Login</h2>
+          <form>
+            <div className="mb-4">
+              <label htmlFor="username" className="block text-sm font-medium mb-1">Username</label>
+              <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                className="w-full border border-gray-300 rounded px-3 py-2" 
+                placeholder="Enter your username" 
+                required 
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="password" className="block text-sm font-medium mb-1">Password</label>
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                className="w-full border border-gray-300 rounded px-3 py-2" 
+                placeholder="Enter your password" 
+                required 
+              />
+            </div>
+            <button 
+              type="submit" 
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+            >
+              Login
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
