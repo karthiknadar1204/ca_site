@@ -30,18 +30,24 @@ const links = [
 
 const dropdownLinks = {
   Service: [
-    { name: 'Consulting', href: '/service/consulting' },
-    { name: 'Auditing', href: '/service/auditing' },
-    { name: 'Taxation', href: '/service/taxation' },
-    { name: 'Accounting', href: '/service/accounting' },
-    { name: 'Financial Planning', href: '/service/financial-planning' }
+    { name: 'Income Tax', href: '/service/consulting' },
+    { name: 'Value Added Tax(VAT)', href: '/service/auditing' },
+    { name: 'Corporate Services', href: '/service/taxation' },
+    { name: 'Audit', href: '/service/accounting' },
+    { name: 'Corporate Finance', href: '/service/financial-planning' },
+    { name: 'Service for non residents', href: '/service/accounting' },
+    { name: 'Accounting services', href: '/service/accounting' },
+    { name: 'Payroll', href: '/service/accounting' },
+    { name: 'Benefits of Outsourcing', href: '/service/accounting' },
+    { name: 'TDS', href: '/service/accounting' },
+    { name: 'Corporate Governance', href: '/service/accounting' },
+    { name: 'Service Tax', href: '/service/accounting' }
   ],
   Links: [
-    { name: 'Resources', href: '/links/resources' },
-    { name: 'Partners', href: '/links/partners' },
-    { name: 'Blog', href: '/links/blog' },
-    { name: 'News', href: '/links/news' },
-    { name: 'Events', href: '/links/events' }
+    { name: 'Quick Links', href: '/links/resources' },
+    { name: 'Important Links', href: '/links/partners' },
+    { name: 'GST/VAT links', href: '/links/blog' },
+    { name: 'Ease of Doing Business', href: '/links/news' }
   ],
   Rules: [
     { name: 'Compliance', href: '/rules/compliance' },
