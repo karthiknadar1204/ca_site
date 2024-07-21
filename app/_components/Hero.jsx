@@ -38,7 +38,7 @@ const whatsNew = [
   '14/05/2024: Sebi tells investment advisors to share social media details twice a year',
   '14/05/2024: SC issues notice to Centre over petition on imposition of GST on JDA',
   '14/05/2024: RBI\'s investment in IIFC UK subsidiary fell by a fifth in FY23-24',
-  '14/05/2024: RBI Monetary Policy: India’s sticky inflation gives RBI reason to stay on hold',
+  '14/05/2024: RBI Monetary Policy: Indias sticky inflation gives RBI reason to stay on hold',
   '13/05/2024: GST on corporate guarantees: SC to offer clarity, say officials',
   '10/05/2024: Five mutual fund houses files draft offer documents with Sebi',
   '09/05/2024: RBI asks NBFCs not to lend more than Rs 20,000 in cash for gold loan',
@@ -139,9 +139,9 @@ const Hero = () => {
           <p className="mb-4 text-lg lg:text-xl">
             To be amongst the most respected and leading professional firms by providing quality professional service with highest standards of integrity, specialization & dedication to domestic as well as global clients.
           </p>
-          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
-            <div className="flex-1 text-center">
-              <p className="mb-2 text-lg">Accounting</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="flex flex-col items-center">
+              <p className="mb-2 text-lg font-semibold">Accounting</p>
               <Image 
                 src="/image1.png" 
                 alt="Accounting Image"
@@ -149,8 +149,8 @@ const Hero = () => {
                 height={150}  
               />
             </div>
-            <div className="flex-1 text-center">
-              <p className="mb-2 text-lg">Auditing</p>
+            <div className="flex flex-col items-center">
+              <p className="mb-2 text-lg font-semibold">Auditing</p>
               <Image 
                 src="/image2.png" 
                 alt="Auditing Image"
@@ -158,8 +158,8 @@ const Hero = () => {
                 height={150}  
               />
             </div>
-            <div className="flex-1 text-center">
-              <p className="mb-2 text-lg">Income Tax</p>
+            <div className="flex flex-col items-center">
+              <p className="mb-2 text-lg font-semibold">Income Tax</p>
               <Image 
                 src="/image3.png" 
                 alt="Income Tax Image"
