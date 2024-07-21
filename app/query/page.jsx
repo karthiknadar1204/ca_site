@@ -25,12 +25,11 @@ const QueryPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log(formData);
   };
 
   return (
-    <div className="p-8 max-w-4xl mx-auto bg-white text-gray-800 border-4 border-black rounded-lg mt-5">
+    <div className="p-8 max-w-4xl mx-auto bg-white text-gray-800 border-2 border-black rounded-lg mt-5">
       <h1 className="text-4xl font-bold mb-6">Query</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
