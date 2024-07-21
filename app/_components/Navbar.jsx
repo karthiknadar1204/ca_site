@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 
 const images = [
   '/b1.jpg', 
@@ -67,6 +67,8 @@ const dropdownLinks = {
 
 const Navbar = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openDropdowns, setOpenDropdowns] = useState({});
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -75,8 +77,35 @@ const Navbar = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const toggleDropdown = (category) => {
+    setOpenDropdowns(prev => ({...prev, [category]: !prev[category]}));
+  };
+
+  const renderMobileDropdown = (category) => (
+    <div key={category} className="mb-2">
+      <button 
+        onClick={() => toggleDropdown(category)} 
+        className="flex items-center justify-between w-full text-white py-2"
+      >
+        {category}
+        <ChevronDown className={`ml-2 transform ${openDropdowns[category] ? 'rotate-180' : ''}`} />
+      </button>
+      {openDropdowns[category] && (
+        <div className="pl-4">
+          {dropdownLinks[category].map((item, index) => (
+            <Link key={index} href={item.href} className="block py-1 text-white">
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       <div className="flex flex-col items-start justify-start p-4 bg-white text-black">
         <div className="flex items-center">
           <div className="text-6xl font-bold mr-4">CA</div>
@@ -101,68 +130,90 @@ const Navbar = () => {
           </div>
         ))}
       </div>
-      <div className="bg-black p-4 flex justify-between flex-wrap items-center">
-        {links.map((link, index) => (
-          <Link key={index} href={link.href} className="text-white mx-2 hover:text-gray-300">
-              {link.name}
-          </Link>
-        ))}
-        <DropdownMenu>
-          <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
-            Service <ChevronDown className="ml-2" />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel>Service</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {dropdownLinks.Service.map((item, index) => (
-              <DropdownMenuItem key={index}>
-                <Link href={item.href}>{item.name}</Link>
-              </DropdownMenuItem>
+      <div className="bg-black p-4 relative">
+        {/* Hamburger menu for small and medium screens */}
+        <div className="lg:hidden">
+          <button onClick={toggleMenu} className="text-white">
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-black p-4 z-50">
+            {links.map((link, index) => (
+              <Link key={index} href={link.href} className="block text-white py-2">
+                {link.name}
+              </Link>
             ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-        <DropdownMenu>
-          <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
-            Links <ChevronDown className="ml-2" />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel>Links</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {dropdownLinks.Links.map((item, index) => (
-              <DropdownMenuItem key={index}>
-                <Link href={item.href}>{item.name}</Link>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-        <DropdownMenu>
-          <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
-            Rules <ChevronDown className="ml-2" />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel>Rules</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {dropdownLinks.Rules.map((item, index) => (
-              <DropdownMenuItem key={index}>
-                <Link href={item.href}>{item.name}</Link>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-        <DropdownMenu>
-          <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
-            Forms <ChevronDown className="ml-2" />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel>Forms</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {dropdownLinks.Forms.map((item, index) => (
-              <DropdownMenuItem key={index}>
-                <Link href={item.href}>{item.name}</Link>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
+            {Object.keys(dropdownLinks).map(renderMobileDropdown)}
+          </div>
+        )}
+
+        {/* Regular menu for large screens */}
+        <div className="hidden lg:flex justify-between flex-wrap items-center">
+          {links.map((link, index) => (
+            <Link key={index} href={link.href} className="text-white mx-2 hover:text-gray-300">
+                {link.name}
+            </Link>
+          ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
+              Service <ChevronDown className="ml-2" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Service</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {dropdownLinks.Service.map((item, index) => (
+                <DropdownMenuItem key={index}>
+                  <Link href={item.href}>{item.name}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
+              Links <ChevronDown className="ml-2" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Links</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {dropdownLinks.Links.map((item, index) => (
+                <DropdownMenuItem key={index}>
+                  <Link href={item.href}>{item.name}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
+              Rules <ChevronDown className="ml-2" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Rules</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {dropdownLinks.Rules.map((item, index) => (
+                <DropdownMenuItem key={index}>
+                  <Link href={item.href}>{item.name}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
+              Forms <ChevronDown className="ml-2" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Forms</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {dropdownLinks.Forms.map((item, index) => (
+                <DropdownMenuItem key={index}>
+                  <Link href={item.href}>{item.name}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </div>
   );
