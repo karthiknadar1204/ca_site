@@ -78,6 +78,10 @@ const Hero = () => {
     return () => clearInterval(scrollInterval);
   }, [isPaused]);
 
+  // const handleLoginClick = () => {
+  //   router.push('/login');
+  // };
+
   return (
     <div className="flex flex-col lg:flex-row">
       <div className="w-full lg:w-1/4 bg-gray-200 p-4">
@@ -214,6 +218,7 @@ const Hero = () => {
             <button 
               type="submit" 
               className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+              // onClick={handleLoginClick}
             >
               Login
             </button>
