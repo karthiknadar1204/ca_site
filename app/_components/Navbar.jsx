@@ -112,7 +112,7 @@ const Navbar = () => {
           <div className="flex flex-col">
             <div className="text-2xl lg:text-4xl font-semibold">
               <span className="block lg:inline-block text-blue-700">Ankur A Gupta and Associates</span>
-              <span className="block lg:inline-block ml-4 lg:ml-0 mt-2 lg:mt-0 text-black">Chartered Accountants</span>
+              <span className="block lg:inline-block ml-4 lg:ml-[4rem] mt-2 lg:mt-0 text-black">Chartered Accountants</span>
             </div>
           </div>
         </div>
