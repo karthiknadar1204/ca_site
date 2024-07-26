@@ -25,7 +25,7 @@ const links = [
   { name: 'About Us', href: '/about-us' },
   { name: 'Contact Us', href: '/contact-us' },
   { name: 'Query', href: '/query' },
-  { name: 'careers', href: '/careers' }
+  { name: 'Careers', href: '/careers' }
 ];
 
 const dropdownLinks = {
@@ -109,9 +109,11 @@ const Navbar = () => {
       <div className="flex flex-col items-start justify-start p-4 bg-white text-black">
         <div className="flex items-center">
           <div className="text-6xl font-bold mr-4">CA</div>
-          <div>
-            <div className="text-2xl lg:text-4xl font-semibold text-blue-700">Ankur A Gupta and Associates</div>
-            <div className="text-xl lg:text-2xl font-medium ml-28 mt-4">Chartered Accountants</div>
+          <div className="flex flex-col">
+            <div className="text-2xl lg:text-4xl font-semibold">
+              <span className="block lg:inline-block text-blue-700">Ankur A Gupta and Associates</span>
+              <span className="block lg:inline-block ml-4 lg:ml-0 mt-2 lg:mt-0 text-black">Chartered Accountants</span>
+            </div>
           </div>
         </div>
       </div>

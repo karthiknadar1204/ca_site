@@ -11,7 +11,6 @@ const services = [
   'Corporate Finance',
   'Services for Non-Resident',
   'Accounting Services',
-  'Benefits of Outsourcing',
   'TDS',
   'Corporate Governance'
 ];
