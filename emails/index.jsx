@@ -38,16 +38,10 @@ export const YelpRecentLoginEmail = ({
       <Body style={main}>
         <Container>
           <Section style={logo}>
-            {/* <Img src={`${baseUrl}/static/yelp-logo.png`} /> */}
           </Section>
 
           <Section style={content}>
             <Row>
-              {/* <Img
-                style={image}
-                width={620}
-                src={`${baseUrl}/static/yelp-header.png`}
-              /> */}
             </Row>
 
             <Row style={{ ...boxInfos, paddingBottom: "0" }}>
