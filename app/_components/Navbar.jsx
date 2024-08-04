@@ -57,11 +57,14 @@ const dropdownLinks = {
     { name: 'Policies', href: '/rules/policies' }
   ],
   Forms: [
-    { name: 'Contact Form', href: '/forms/contact' },
-    { name: 'Feedback Form', href: '/forms/feedback' },
-    { name: 'Application Form', href: '/forms/application' },
-    { name: 'Registration Form', href: '/forms/registration' },
-    { name: 'Survey Form', href: '/forms/survey' }
+    { name: 'ROC Forms(cos act 2013)', href: '/forms/contact' },
+    { name: 'Income Tax Forms', href: '/forms/feedback' },
+    { name: 'ROC Forms(cos act 1956)', href: '/forms/application' },
+    { name: 'Income Declaration Form', href: '/forms/registration' },
+    { name: 'Wealth Tax Form', href: '/forms/survey' },
+    { name: 'ServiceTax Form', href: '/forms/survey' },
+    { name: 'NBFCs Tax Form', href: '/forms/survey' },
+    { name: 'LLP Winding up Form', href: '/forms/survey' }
   ]
 };
 
@@ -111,7 +114,7 @@ const Navbar = () => {
           <div className="text-6xl font-bold mr-4">CA</div>
           <div className="flex flex-col">
             <div className="text-2xl lg:text-4xl font-semibold">
-              <span className="block lg:inline-block text-blue-700">Ankur A Gupta and Associates</span>
+              <span className="block lg:inline-block text-blue-700">MDS Associates</span>
               <span className="block lg:inline-block ml-4 lg:ml-[4rem] mt-2 lg:mt-0 text-black">Chartered Accountants</span>
             </div>
           </div>

@@ -117,7 +117,7 @@ const Hero = () => {
           <div className="flex flex-col lg:flex-row items-center mb-4">
             <div className="mb-4 lg:mb-0 lg:mr-4">
               <Image 
-                src="/image1.png" 
+                src="/md5.jpg" 
                 alt="Image description"
                 width={150} 
                 height={150}  
@@ -125,7 +125,7 @@ const Hero = () => {
             </div>
             <div>
               <p className='text-lg lg:text-xl'>
-                Ankur A Gupta & Associates is a Proprietorship Chartered Accountancy <br/> Firm established in the year 2012.
+                MDS Associates is a Proprietorship Chartered Accountancy <br/> Firm established in the year 2012.
                 We are a practicing Chartered <br/> Accountancy firm specializing in auditing, accounting, taxation, <br/> management services, corporate services etc.
               </p>
             </div>
@@ -146,28 +146,28 @@ const Hero = () => {
             <div className="flex flex-col items-center">
               <p className="mb-2 text-lg font-semibold">Accounting</p>
               <Image 
-                src="/image1.png" 
+                src="/Accounting.jpg" 
                 alt="Accounting Image"
-                width={150} 
-                height={150}  
+                width={190} 
+                height={190}  
               />
             </div>
             <div className="flex flex-col items-center">
               <p className="mb-2 text-lg font-semibold">Auditing</p>
               <Image 
-                src="/image2.png" 
+                src="/Audit.jpg" 
                 alt="Auditing Image"
-                width={150} 
-                height={150}  
+                width={190} 
+                height={190}  
               />
             </div>
             <div className="flex flex-col items-center">
               <p className="mb-2 text-lg font-semibold">Income Tax</p>
               <Image 
-                src="/image3.png" 
+                src="/incometax.jpg" 
                 alt="Income Tax Image"
-                width={150} 
-                height={150}  
+                width={190} 
+                height={190}  
               />
             </div>
           </div>
