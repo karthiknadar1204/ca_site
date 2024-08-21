@@ -16,15 +16,17 @@ const services = [
 ];
 
 const utilities = [
-  'PAN Search',
-  'TAN Search',
-  'Currency Converter',
-  'Online Payment of Taxes',
-  'Income Tax Refund Status',
-  'Challan Status Enquiry',
-  'e-filing',
-  'MCA21(ROC)',
-  'Important Dates'
+  { name: 'PAN Search', link: 'https://incometaxindiaefiling.gov.in/portal/knowpan.do' },
+  { name: 'TAN Search', link: 'https://incometaxindiaefiling.gov.in/e-Filing/Services/KnowYourTanLink.html' },
+  { name: 'Currency Converter', link: 'https://www.xe.com/currencyconverter/' },
+  { name: 'Online Payment of Taxes', link: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/working-payments/e-pay-tax-1' },
+  { name: 'Income Tax Refund Status', link: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/filing-your-return/check-refund-status' },
+  { name: 'Challan Status Enquiry', link: 'https://www.incometax.gov.in/iec/foportal/help/challan-status-inquiry-faqs' },
+  { name: 'e-filing', link: 'https://eportal.incometax.gov.in/' },
+  { name: 'MCA21(ROC)', link: 'https://www.mca.gov.in/mcafoportal/' },
+  { name: 'GST Registration', link: 'https://services.gst.gov.in/services/quicklinks/registration' },
+  { name: 'GST Search', link: 'https://services.gst.gov.in/services/searchtp'},
+  {}
 ];
 
 const whatsNew = [
@@ -104,7 +106,9 @@ const Hero = () => {
                 key={index} 
                 className="text-black mb-1 hover:bg-gray-300 p-2 rounded transition-colors duration-200"
               >
-                {utility}
+                <a href={utility.link} target="_blank" rel="noopener noreferrer">
+                  {utility.name}
+                </a>
               </li>
             ))}
           </ul>
