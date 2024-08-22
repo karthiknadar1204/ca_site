@@ -197,7 +197,7 @@ const Hero = () => {
         <div className="mt-8 p-4 bg-gray-100 border border-gray-300 rounded">
           <h2 className="text-xl font-bold mb-4">Login</h2>
           <form onSubmit={handleFormSubmit}>
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <label htmlFor="username" className="block text-sm font-medium mb-1">Username</label>
               <input 
                 type="text" 
@@ -207,8 +207,8 @@ const Hero = () => {
                 placeholder="Enter your username" 
                 required 
               />
-            </div>
-            <div className="mb-4">
+            </div> */}
+            {/* <div className="mb-4">
               <label htmlFor="password" className="block text-sm font-medium mb-1">Password</label>
               <input 
                 type="password" 
@@ -218,7 +218,7 @@ const Hero = () => {
                 placeholder="Enter your password" 
                 required 
               />
-            </div>
+            </div> */}
             <button 
               type="submit" 
               className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
