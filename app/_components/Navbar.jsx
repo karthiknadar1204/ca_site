@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -72,6 +73,8 @@ const Navbar = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdowns, setOpenDropdowns] = useState({});
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,10 +83,19 @@ const Navbar = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const toggleDropdown = (category) => {
     setOpenDropdowns(prev => ({...prev, [category]: !prev[category]}));
+  };
+
+  const handleNavigation = (href) => {
+    router.push(href);
+    setIsMenuOpen(false);
   };
 
   const renderMobileDropdown = (category) => (
@@ -98,9 +110,9 @@ const Navbar = () => {
       {openDropdowns[category] && (
         <div className="pl-4">
           {dropdownLinks[category].map((item, index) => (
-            <Link key={index} href={item.href} className="block py-1 text-white">
+            <button key={index} onClick={() => handleNavigation(item.href)} className="block py-1 text-white w-full text-left">
               {item.name}
-            </Link>
+            </button>
           ))}
         </div>
       )}
@@ -147,9 +159,9 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-black p-4 z-50">
             {links.map((link, index) => (
-              <Link key={index} href={link.href} className="block text-white py-2">
+              <button key={index} onClick={() => handleNavigation(link.href)} className="block text-white py-2 w-full text-left">
                 {link.name}
-              </Link>
+              </button>
             ))}
             {Object.keys(dropdownLinks).map(renderMobileDropdown)}
           </div>
@@ -159,65 +171,25 @@ const Navbar = () => {
         <div className="hidden lg:flex justify-between flex-wrap items-center">
           {links.map((link, index) => (
             <Link key={index} href={link.href} className="text-white mx-2 hover:text-gray-300">
-                {link.name}
+              {link.name}
             </Link>
           ))}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
-              Service <ChevronDown className="ml-2" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>Service</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {dropdownLinks.Service.map((item, index) => (
-                <DropdownMenuItem key={index}>
-                  <Link href={item.href}>{item.name}</Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
-              Links <ChevronDown className="ml-2" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>Links</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {dropdownLinks.Links.map((item, index) => (
-                <DropdownMenuItem key={index}>
-                  <Link href={item.href}>{item.name}</Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
-              Rules <ChevronDown className="ml-2" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>Rules</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {dropdownLinks.Rules.map((item, index) => (
-                <DropdownMenuItem key={index}>
-                  <Link href={item.href}>{item.name}</Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
-              Forms <ChevronDown className="ml-2" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>Forms</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {dropdownLinks.Forms.map((item, index) => (
-                <DropdownMenuItem key={index}>
-                  <Link href={item.href}>{item.name}</Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {Object.entries(dropdownLinks).map(([category, items]) => (
+            <DropdownMenu key={category}>
+              <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
+                {category} <ChevronDown className="ml-2" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuLabel>{category}</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {items.map((item, index) => (
+                  <DropdownMenuItem key={index}>
+                    <Link href={item.href}>{item.name}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ))}
         </div>
       </div>
     </div>
