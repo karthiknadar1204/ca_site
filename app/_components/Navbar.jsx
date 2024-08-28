@@ -58,14 +58,14 @@ const dropdownLinks = {
     { name: 'Policies', href: '/rules/policies' }
   ],
   Forms: [
-    { name: 'ROC Forms(cos act 2013)', href: '/forms/contact' },
-    { name: 'Income Tax Forms', href: '/forms/feedback' },
-    { name: 'ROC Forms(cos act 1956)', href: '/forms/application' },
-    { name: 'Income Declaration Form', href: '/forms/registration' },
-    { name: 'Wealth Tax Form', href: '/forms/survey' },
-    { name: 'ServiceTax Form', href: '/forms/survey' },
-    { name: 'NBFCs Tax Form', href: '/forms/survey' },
-    { name: 'LLP Winding up Form', href: '/forms/survey' }
+    { name: 'ROC Forms(cos act 2013)', href: 'https://www.mca.gov.in/Ministry/pdf/CompaniesAct2013.pdf' },
+    { name: 'Income Tax Forms', href: 'https://www.incometax.gov.in/iec/foportal/downloads/income-tax-forms' },
+    { name: 'ROC Forms(cos act 1956)', href: 'https://www.mca.gov.in/Ministry/pdf/eformsMapping.pdf' },
+    { name: 'Income Declaration Form', href: 'https://www.mca.gov.in/Ministry/pdf/CompaniesAct2013.pdf' },
+    { name: 'Wealth Tax Form', href: 'https://incometaxindia.gov.in/Pages/downloads/wealth-tax-return.aspx' },
+    { name: 'ServiceTax Form', href: 'https://www.centralexcisechennai.gov.in/chennai2/Trade%20Notices/Trade%20Notices%20ST/forms-st.htm' },
+    { name: 'NBFCs Tax Form', href: 'https://advocatekhoj.com/library/legalforms/formsfor/index.php?Fno=nbfcforms.php' },
+    { name: 'LLP Winding up Form', href: 'https://www.mca.gov.in/LLP/pdf/llp_winding_up_rules_corrected.pdf' }
   ]
 };
 
@@ -148,14 +148,12 @@ const Navbar = () => {
         ))}
       </div>
       <div className="bg-black p-4 relative">
-        {/* Hamburger menu for small and medium screens */}
         <div className="lg:hidden">
           <button onClick={toggleMenu} className="text-white">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile menu */}
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-black p-4 z-50">
             {links.map((link, index) => (
@@ -167,7 +165,6 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* Regular menu for large screens */}
         <div className="hidden lg:flex justify-between flex-wrap items-center">
           {links.map((link, index) => (
             <Link key={index} href={link.href} className="text-white mx-2 hover:text-gray-300">
@@ -184,7 +181,7 @@ const Navbar = () => {
                 <DropdownMenuSeparator />
                 {items.map((item, index) => (
                   <DropdownMenuItem key={index}>
-                    <Link href={item.href}>{item.name}</Link>
+                    <Link href={item.href} target='_blank'>{item.name}</Link>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>

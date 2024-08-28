@@ -118,7 +118,7 @@ const Hero = () => {
 
       <div className="w-full lg:w-2/4 p-4">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl lg:text-3xl font-bold bg-gray-200 text-blue-600 p-2 mb-4">Welcome to Ankur A Gupta & Associates</h1>
+          <h1 className="text-2xl lg:text-3xl font-bold bg-gray-200 text-blue-600 p-2 mb-4">Welcome to CA MDS Associates</h1>
           <div className="flex flex-col lg:flex-row items-center mb-4">
             <div className="mb-4 lg:mb-0 lg:mr-4">
               <Image 
@@ -197,28 +197,6 @@ const Hero = () => {
         <div className="mt-8 p-4 bg-gray-100 border border-gray-300 rounded">
           <h2 className="text-xl font-bold mb-4">Login</h2>
           <form onSubmit={handleFormSubmit}>
-            {/* <div className="mb-4">
-              <label htmlFor="username" className="block text-sm font-medium mb-1">Username</label>
-              <input 
-                type="text" 
-                id="username" 
-                name="username" 
-                className="w-full border border-gray-300 rounded px-3 py-2" 
-                placeholder="Enter your username" 
-                required 
-              />
-            </div> */}
-            {/* <div className="mb-4">
-              <label htmlFor="password" className="block text-sm font-medium mb-1">Password</label>
-              <input 
-                type="password" 
-                id="password" 
-                name="password" 
-                className="w-full border border-gray-300 rounded px-3 py-2" 
-                placeholder="Enter your password" 
-                required 
-              />
-            </div> */}
             <button 
               type="submit" 
               className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"

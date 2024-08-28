@@ -6,7 +6,7 @@ const ContactUs = () => {
     <div className="flex flex-col lg:flex-row items-center lg:items-start p-6 lg:p-12 bg-gray-100 mt-5">
       <div className="flex-shrink-0 lg:w-1/2 mb-6 lg:mb-0 lg:ml-6 relative">
         <Image 
-          src="/image1.png" 
+          src="/Contactus.jpg" 
           alt="Contact Us"
           width={500}
           height={300} 
