@@ -3,14 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 const images = [
@@ -161,20 +154,26 @@ const Navbar = () => {
             </Link>
           ))}
           {Object.entries(dropdownLinks).map(([category, items]) => (
-            <DropdownMenu key={category}>
-              <DropdownMenuTrigger className="text-white mx-2 flex items-center hover:text-gray-300">
+            <div key={category} className="relative group">
+              <button className="text-white mx-2 flex items-center hover:text-gray-300">
                 {category} <ChevronDown className="ml-2" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuLabel>{category}</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                {items.map((item, index) => (
-                  <DropdownMenuItem key={index}>
-                    <Link href={item.href} target='_blank'>{item.name}</Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </button>
+              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out">
+                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                  {items.map((item, index) => (
+                    <Link 
+                      key={index} 
+                      href={item.href} 
+                      target='_blank'
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" 
+                      role="menuitem"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
