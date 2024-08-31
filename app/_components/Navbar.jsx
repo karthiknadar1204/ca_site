@@ -27,7 +27,8 @@ const links = [
   { name: 'Contact Us', href: '/contact-us' },
   { name: 'Query', href: '/query' },
   { name: 'Careers', href: '/careers' },
-  { name: 'Terms & Conditions', href: 'https://drive.google.com/file/d/1V9qeLNg5pDG6m0VLyWNi4sWpEjnIKETs/view' }
+  { name: 'Terms & Conditions', href: 'https://drive.google.com/file/d/1V9qeLNg5pDG6m0VLyWNi4sWpEjnIKETs/view' },
+  { name: 'Payment', href: '/payment' }
 ];
 
 const dropdownLinks = {
