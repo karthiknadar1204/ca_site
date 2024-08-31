@@ -20,15 +20,15 @@ const QueryPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
+      // const response = await fetch('/api/email', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify(formData)
+      // });
 
-      const result = await response.json();
+      // const result = await response.json();
       console.log(result);
     } catch (error) {
       console.error('Error submitting form:', error);
