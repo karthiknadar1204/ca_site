@@ -4,14 +4,8 @@ import React, { useState } from 'react';
 const QueryPage = () => {
   const [formData, setFormData] = useState({
     name: '',
-    designation: '',
-    organisation: '',
-    officeAddress: '',
-    city: '',
     emailAddress: '',
-    telephoneNo: '',
-    mobile: '',
-    professionalUpdates: 'No',
+    phoneNumber: '',
     description: ''
   });
 
@@ -45,128 +39,43 @@ const QueryPage = () => {
     <div className="p-8 max-w-4xl mx-auto bg-white text-gray-800 border-2 border-black rounded-lg mt-5">
       <h1 className="text-4xl font-bold mb-6">Query</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label className="block text-lg font-medium mb-2" htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-lg font-medium mb-2" htmlFor="designation">Designation</label>
-            <input
-              type="text"
-              id="designation"
-              name="designation"
-              value={formData.designation}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-              required
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label className="block text-lg font-medium mb-2" htmlFor="organisation">Organisation</label>
-            <input
-              type="text"
-              id="organisation"
-              name="organisation"
-              value={formData.organisation}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-lg font-medium mb-2" htmlFor="officeAddress">Office Address</label>
-            <input
-              type="text"
-              id="officeAddress"
-              name="officeAddress"
-              value={formData.officeAddress}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-lg font-medium mb-2" htmlFor="city">City</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              value={formData.city}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-lg font-medium mb-2" htmlFor="emailAddress">Email Address</label>
-            <input
-              type="email"
-              id="emailAddress"
-              name="emailAddress"
-              value={formData.emailAddress}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-lg font-medium mb-2" htmlFor="telephoneNo">Telephone No.</label>
-            <input
-              type="tel"
-              id="telephoneNo"
-              name="telephoneNo"
-              value={formData.telephoneNo}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-lg font-medium mb-2" htmlFor="mobile">Mobile</label>
-            <input
-              type="tel"
-              id="mobile"
-              name="mobile"
-              value={formData.mobile}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-          </div>
+        <div>
+          <label className="block text-lg font-medium mb-2" htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-300 rounded"
+            required
+          />
         </div>
 
         <div>
-          <p className="text-lg font-medium mb-2">Other professional updates*</p>
-          <div className="flex space-x-4">
-            <label className="inline-flex items-center">
-              <input
-                type="radio"
-                name="professionalUpdates"
-                value="Yes"
-                checked={formData.professionalUpdates === 'Yes'}
-                onChange={handleChange}
-                className="form-radio"
-              />
-              <span className="ml-2">Yes</span>
-            </label>
-            <label className="inline-flex items-center">
-              <input
-                type="radio"
-                name="professionalUpdates"
-                value="No"
-                checked={formData.professionalUpdates === 'No'}
-                onChange={handleChange}
-                className="form-radio"
-              />
-              <span className="ml-2">No</span>
-            </label>
-          </div>
+          <label className="block text-lg font-medium mb-2" htmlFor="emailAddress">Email Address</label>
+          <input
+            type="email"
+            id="emailAddress"
+            name="emailAddress"
+            value={formData.emailAddress}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-300 rounded"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block text-lg font-medium mb-2" htmlFor="phoneNumber">Phone Number</label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-300 rounded"
+            required
+          />
         </div>
 
         <div>
@@ -178,6 +87,7 @@ const QueryPage = () => {
             onChange={handleChange}
             rows="4"
             className="w-full p-2 border border-gray-300 rounded"
+            required
           />
         </div>
 

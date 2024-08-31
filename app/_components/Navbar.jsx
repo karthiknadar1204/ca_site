@@ -26,7 +26,8 @@ const links = [
   { name: 'About Us', href: '/about-us' },
   { name: 'Contact Us', href: '/contact-us' },
   { name: 'Query', href: '/query' },
-  { name: 'Careers', href: '/careers' }
+  { name: 'Careers', href: '/careers' },
+  { name: 'Terms & Conditions', href: 'https://drive.google.com/file/d/1V9qeLNg5pDG6m0VLyWNi4sWpEjnIKETs/view' }
 ];
 
 const dropdownLinks = {
@@ -43,19 +44,6 @@ const dropdownLinks = {
     { name: 'TDS', href: '/service/accounting' },
     { name: 'Corporate Governance', href: '/service/accounting' },
     { name: 'Service Tax', href: '/service/accounting' }
-  ],
-  Links: [
-    { name: 'Quick Links', href: '/links/resources' },
-    { name: 'Important Links', href: '/links/partners' },
-    { name: 'GST/VAT links', href: '/links/blog' },
-    { name: 'Ease of Doing Business', href: '/links/news' }
-  ],
-  Rules: [
-    { name: 'Compliance', href: '/rules/compliance' },
-    { name: 'Regulations', href: '/rules/regulations' },
-    { name: 'Standards', href: '/rules/standards' },
-    { name: 'Guidelines', href: '/rules/guidelines' },
-    { name: 'Policies', href: '/rules/policies' }
   ],
   Forms: [
     { name: 'ROC Forms(cos act 2013)', href: 'https://www.mca.gov.in/Ministry/pdf/CompaniesAct2013.pdf' },

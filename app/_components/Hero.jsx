@@ -16,14 +16,14 @@ const services = [
 ];
 
 const utilities = [
-  { name: 'PAN Search', link: 'https://incometaxindiaefiling.gov.in/portal/knowpan.do' },
-  { name: 'TAN Search', link: 'https://incometaxindiaefiling.gov.in/e-Filing/Services/KnowYourTanLink.html' },
-  { name: 'Currency Converter', link: 'https://www.xe.com/currencyconverter/' },
+  { name: 'PAN Search', link: 'https://incometaxindia.gov.in/Pages/pan.aspx' },
+  { name: 'TAN Search', link: 'https://incometaxindia.gov.in/Pages/tan-tds.aspx' },
+  { name: 'Currency Converter', link: 'https://paytm.com/tools/currency-converter/' },
   { name: 'Online Payment of Taxes', link: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/working-payments/e-pay-tax-1' },
   { name: 'Income Tax Refund Status', link: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/filing-your-return/check-refund-status' },
   { name: 'Challan Status Enquiry', link: 'https://www.incometax.gov.in/iec/foportal/help/challan-status-inquiry-faqs' },
   { name: 'e-filing', link: 'https://eportal.incometax.gov.in/' },
-  { name: 'MCA21(ROC)', link: 'https://www.mca.gov.in/mcafoportal/' },
+  { name: 'MCA21(ROC)', link: 'https://www.mca.gov.in/MinistryV2/companyformsdownload.html' },
   { name: 'GST Registration', link: 'https://services.gst.gov.in/services/quicklinks/registration' },
   { name: 'GST Search', link: 'https://services.gst.gov.in/services/searchtp'},
   {}
