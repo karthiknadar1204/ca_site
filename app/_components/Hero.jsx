@@ -169,7 +169,7 @@ const Hero = () => {
             <div className="flex flex-col items-center">
               <p className="mb-2 text-lg font-semibold">Income Tax</p>
               <Image 
-                src="/incometax.jpg" 
+                src="/Incometax_img.jpg" 
                 alt="Income Tax Image"
                 width={190} 
                 height={190}  
