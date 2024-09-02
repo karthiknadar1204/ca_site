@@ -18,7 +18,7 @@ const ContactUs = () => {
         <h2 className="text-2xl font-semibold mb-2">MDS Associates</h2>
         <p className="text-lg mb-2">Chartered Accountants</p>
         <p className="text-lg mb-2"><strong>Cell:</strong>+91 9889222218</p>
-        <p className="text-lg mb-2"><strong>Email IDs:</strong> caskverma@mdsassociate</p>
+        <p className="text-lg mb-2"><strong>Email IDs:</strong> caskverma@mdsassociate.in</p>
       </div>
     </div>
   );
