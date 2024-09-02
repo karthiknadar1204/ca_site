@@ -10,7 +10,7 @@ const TeamPage = () => {
       </p>
       
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">CA SK Verma (Proprietor)</h2>
+        <h2 className="text-2xl font-semibold mb-2">CA SK Verma</h2>
         <p className="mb-4">
           He is Founder of MDS & associates and Professional in the fields of Taxation, Auditing, Management, and Corporate Consultancy through practicing the profession.
         </p>

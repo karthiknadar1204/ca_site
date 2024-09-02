@@ -15,10 +15,10 @@ const ContactUs = () => {
       </div>
       <div className="lg:w-1/2 lg:ml-12 text-center lg:text-left">
         <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
-        <h2 className="text-2xl font-semibold mb-2">CA MDS Associates</h2>
+        <h2 className="text-2xl font-semibold mb-2">MDS Associates</h2>
         <p className="text-lg mb-2">Chartered Accountants</p>
         <p className="text-lg mb-2"><strong>Cell:</strong>+91 9889222218</p>
-        <p className="text-lg mb-2"><strong>Email IDs:</strong> caksverma2015@gmail.com</p>
+        <p className="text-lg mb-2"><strong>Email IDs:</strong> caskverma@mdsassociate</p>
       </div>
     </div>
   );

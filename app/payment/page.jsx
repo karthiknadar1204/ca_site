@@ -15,7 +15,7 @@ const page = () => {
           <div className="flex justify-center mb-6">
             <div className="w-64 h-64 relative">
               <Image
-                src="/qr_code.png"
+                src="/qr_code_2.png"
                 alt="QR Code"
                 layout="fill"
                 objectFit="contain"
@@ -24,28 +24,28 @@ const page = () => {
           </div>
           <dl className="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
             <div className="sm:col-span-2">
-              <dt className="text-sm font-medium text-gray-500">UPI ID</dt>
-              <dd className="mt-1 text-sm text-gray-900">caskverma2015@oksbi</dd>
+              <dt className="text-sm font-medium text-gray-500">Account Name</dt>
+              <dd className="mt-1 text-sm text-gray-900">MDS & ASSOCIATES</dd>
             </div>
             <div className="sm:col-span-2">
-              <dt className="text-sm font-medium text-gray-500">A/c No</dt>
-              <dd className="mt-1 text-sm text-gray-900">32306507494</dd>
+              <dt className="text-sm font-medium text-gray-500">Bank Name</dt>
+              <dd className="mt-1 text-sm text-gray-900">INDIAN OVERSEAS BANK</dd>
             </div>
             <div className="sm:col-span-2">
-              <dt className="text-sm font-medium text-gray-500">IFSCODE</dt>
-              <dd className="mt-1 text-sm text-gray-900">SBIN0016582</dd>
-            </div>
-            <div className="sm:col-span-2">
-              <dt className="text-sm font-medium text-gray-500">Account holder</dt>
-              <dd className="mt-1 text-sm text-gray-900">SANTOSH KUMAR VERMA</dd>
+              <dt className="text-sm font-medium text-gray-500">IFS CODE</dt>
+              <dd className="mt-1 text-sm text-gray-900">IOBA0003233</dd>
             </div>
             <div className="sm:col-span-2">
               <dt className="text-sm font-medium text-gray-500">Branch</dt>
-              <dd className="mt-1 text-sm text-gray-900">LAL BANGLAW, KANPUR</dd>
+              <dd className="mt-1 text-sm text-gray-900">LAL BANGLA</dd>
             </div>
             <div className="sm:col-span-2">
-              <dt className="text-sm font-medium text-gray-500">Gpay or PhonePay</dt>
-              <dd className="mt-1 text-sm text-gray-900">9889222218</dd>
+              <dt className="text-sm font-medium text-gray-500">Account Type</dt>
+              <dd className="mt-1 text-sm text-gray-900">CURRENT</dd>
+            </div>
+            <div className="sm:col-span-2">
+              <dt className="text-sm font-medium text-gray-500">A/C No</dt>
+              <dd className="mt-1 text-sm text-gray-900">323302000000136</dd>
             </div>
           </dl>
         </div>

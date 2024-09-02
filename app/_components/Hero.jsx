@@ -118,7 +118,7 @@ const Hero = () => {
 
       <div className="w-full lg:w-2/4 p-4">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl lg:text-3xl font-bold bg-gray-200 text-blue-600 p-2 mb-4">Welcome to CA MDS Associates</h1>
+          <h1 className="text-2xl lg:text-3xl font-bold bg-gray-200 text-blue-600 p-2 mb-4">Welcome to MDS Associates</h1>
           <div className="flex flex-col lg:flex-row items-center mb-4">
             <div className="mb-4 lg:mb-0 lg:mr-4">
               <Image 
@@ -130,7 +130,7 @@ const Hero = () => {
             </div>
             <div>
               <p className='text-lg lg:text-xl'>
-                MDS Associates is a Proprietorship Chartered Accountancy <br/> Firm established in the year 2012.
+                MDS Associates is a partnership firm Chartered Accountancy <br/> Firm established in the year 2015.
                 We are a practicing Chartered <br/> Accountancy firm specializing in auditing, accounting, taxation, <br/> management services, corporate services etc.
               </p>
             </div>
