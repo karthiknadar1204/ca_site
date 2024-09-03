@@ -8,6 +8,7 @@ const QueryPage = () => {
     phoneNumber: '',
     description: ''
   });
+  const [submitStatus, setSubmitStatus] = useState({ message: '', isError: false });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,25 +20,40 @@ const QueryPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitStatus({ message: '', isError: false });
     try {
-      // const response = await fetch('/api/email', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify(formData)
-      // });
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-      // const result = await response.json();
-      console.log(result);
+      const result = await response.json();
+      if (response.ok) {
+        setSubmitStatus({ message: 'Query submitted successfully!', isError: false });
+        setFormData({ name: '', emailAddress: '', phoneNumber: '', description: '' });
+      } else {
+        throw new Error(result.error || 'Failed to submit query');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
+      setSubmitStatus({ 
+        message: 'Failed to submit query. Please try again later or contact support.',
+        isError: true 
+      });
     }
   };
 
   return (
     <div className="p-8 max-w-4xl mx-auto bg-white text-gray-800 border-2 border-black rounded-lg mt-5">
       <h1 className="text-4xl font-bold mb-6">Query</h1>
+      {submitStatus.message && (
+        <div className={`mb-4 p-2 rounded ${submitStatus.isError ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+          {submitStatus.message}
+        </div>
+      )}
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label className="block text-lg font-medium mb-2" htmlFor="name">Name</label>
