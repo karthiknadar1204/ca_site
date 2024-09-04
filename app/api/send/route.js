@@ -7,17 +7,43 @@ export async function POST(request) {
   try {
     const formData = await request.json();
 
-    const { name, emailAddress, phoneNumber, description } = formData;
+    const { firstName,lastName,name, email,mobileNo,gender,emailAddress, roleApplyingFor,phoneNumber, highestQualification,date,portfolioLink,resume,lastCompany,yearsExperience,monthsExperience,description } = formData;
+    // lastName: '',
+    // email: '',
+    // mobileNo: '',
+    // gender: '',
+    // roleApplyingFor: '',
+    // date: '',
+    // highestQualification: '',
+    // portfolioLink: '',
+    // resume: null,
+    // lastCompany: '',
+    // yearsExperience: '',
+    // monthsExperience: '',
+    // description: ''
 
     const { data, error } = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
       to: ['caskverma@mdsassociate.in'],
-      subject: `Query from ${name}`,
+      subject: `Query from ${firstName || name}`,
       react: EmailTemplate({ 
         firstName: name, 
         emailAddress, 
         phoneNumber, 
-        description 
+        description,
+        lastName,
+        email,
+        mobileNo,
+        gender,
+        roleApplyingFor,
+        phoneNumber,
+        highestQualification,
+        date,
+        portfolioLink,
+        resume,
+        lastCompany,
+        yearsExperience,
+        monthsExperience,
       }),
     });
 

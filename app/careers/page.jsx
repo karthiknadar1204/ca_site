@@ -39,7 +39,7 @@ const QueryPage = () => {
     }
 
     try {
-      const response = await fetch('/api/email', {
+      const response = await fetch('/api/send', {
         method: 'POST',
         body: JSON.stringify(formDataCopy),
         headers: {
