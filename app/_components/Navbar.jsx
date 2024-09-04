@@ -147,15 +147,15 @@ const Navbar = () => {
           </div>
         )}
 
-        <div className="hidden lg:flex justify-between flex-wrap items-center">
+        <div className="hidden lg:flex justify-between flex-wrap items-center overflow-x-auto scrollbar-hide">
           {links.map((link, index) => (
-            <Link key={index} href={link.href} className="text-white mx-0.5 hover:text-gray-300">
+            <Link key={index} href={link.href} className="text-white mx-0.5 hover:text-gray-300 whitespace-nowrap">
               {link.name}
             </Link>
           ))}
           {Object.entries(dropdownLinks).map(([category, items]) => (
             <div key={category} className="relative group">
-              <button className="text-white mx-0.5 flex items-center hover:text-gray-300">
+              <button className="text-white mx-0.5 flex items-center hover:text-gray-300 whitespace-nowrap">
                 {category} <ChevronDown className="ml-0.5" />
               </button>
               <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out">
@@ -177,6 +177,15 @@ const Navbar = () => {
           ))}
         </div>
       </div>
+      <style jsx global>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </div>
   );
 };
