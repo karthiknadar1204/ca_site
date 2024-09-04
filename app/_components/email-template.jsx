@@ -69,46 +69,72 @@ export const EmailTemplate = ({
                   <b>Name: </b>
                   {firstName || name} {lastName}
                 </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Email: </b>
-                  {emailAddress || email}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Phone: </b>
-                  {phoneNumber || mobileNo}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Gender: </b>
-                  {gender}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Role Applying For: </b>
-                  {roleApplyingFor}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Highest Qualification: </b>
-                  {highestQualification}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Date: </b>
-                  {date}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Portfolio: </b>
-                  {portfolioLink}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Last Company: </b>
-                  {lastCompany}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Experience: </b>
-                  {yearsExperience} years {monthsExperience} months
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Description: </b>
-                  {description}
-                </Text>
+                {(emailAddress || email) && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Email: </b>
+                    {emailAddress || email}
+                  </Text>
+                )}
+                {(phoneNumber || mobileNo) && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Phone: </b>
+                    {phoneNumber || mobileNo}
+                  </Text>
+                )}
+                {gender && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Gender: </b>
+                    {gender}
+                  </Text>
+                )}
+                {roleApplyingFor && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Role Applying For: </b>
+                    {roleApplyingFor}
+                  </Text>
+                )}
+                {highestQualification && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Highest Qualification: </b>
+                    {highestQualification}
+                  </Text>
+                )}
+                {date && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Date: </b>
+                    {date}
+                  </Text>
+                )}
+                {portfolioLink && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Portfolio: </b>
+                    {portfolioLink}
+                  </Text>
+                )}
+                {resume && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Resume: </b>
+                    {resume}
+                  </Text>
+                )}
+                {lastCompany && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Last Company: </b>
+                    {lastCompany}
+                  </Text>
+                )}
+                {(yearsExperience || monthsExperience) && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Experience: </b>
+                    {yearsExperience && `${yearsExperience} years`} {monthsExperience && `${monthsExperience} months`}
+                  </Text>
+                )}
+                {description && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>Description: </b>
+                    {description}
+                  </Text>
+                )}
               </Column>
             </Row>
             <Row style={{ ...boxInfos, paddingTop: "0" }}>

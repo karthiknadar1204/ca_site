@@ -13,7 +13,7 @@ const QueryPage = () => {
     date: '',
     highestQualification: '',
     portfolioLink: '',
-    resume: null,
+    resume: '',
     lastCompany: '',
     yearsExperience: '',
     monthsExperience: '',
@@ -21,22 +21,16 @@ const QueryPage = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value, type, files } = e.target;
+    const { name, value } = e.target;
     setFormData(prevData => ({
       ...prevData,
-      [name]: type === 'file' ? files[0] : value
+      [name]: value
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formDataCopy = { ...formData };
-
-    // Create FormData to handle file uploads
-    const form = new FormData();
-    for (const key in formDataCopy) {
-      form.append(key, formDataCopy[key]);
-    }
 
     try {
       const response = await fetch('/api/send', {
@@ -187,11 +181,12 @@ const QueryPage = () => {
             />
           </div>
           <div>
-            <label className="block text-lg font-medium mb-2" htmlFor="resume">Resume</label>
+            <label className="block text-lg font-medium mb-2" htmlFor="resume">Link to Resume</label>
             <input
-              type="file"
+              type="url"
               id="resume"
               name="resume"
+              value={formData.resume}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
             />
