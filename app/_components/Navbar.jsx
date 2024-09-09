@@ -1,21 +1,43 @@
+
+// const dropdownLinks = {
+//   Service: [
+//     { name: 'Income Tax', href: '/service/consulting' },
+//     { name: 'Value Added Tax(VAT)', href: '/service/auditing' },
+//     { name: 'Corporate Services', href: '/service/taxation' },
+//     { name: 'Audit', href: '/service/accounting' },
+//     { name: 'Corporate Finance', href: '/service/financial-planning' },
+//     { name: 'Service for non residents', href: '/service/accounting' },
+//     { name: 'Accounting services', href: '/service/accounting' },
+//     { name: 'Payroll', href: '/service/accounting' },
+//     { name: 'Benefits of Outsourcing', href: '/service/accounting' },
+//     { name: 'TDS', href: '/service/accounting' },
+//     { name: 'Corporate Governance', href: '/service/accounting' },
+//     { name: 'Service Tax', href: '/service/accounting' }
+//   ],
+//   Forms: [
+//     { name: 'ROC Forms(cos act 2013)', href: 'https://www.mca.gov.in/Ministry/pdf/CompaniesAct2013.pdf' },
+//     { name: 'Income Tax Forms', href: 'https://www.incometax.gov.in/iec/foportal/downloads/income-tax-forms' },
+//     { name: 'ROC Forms(cos act 1956)', href: 'https://www.mca.gov.in/Ministry/pdf/eformsMapping.pdf' },
+//     { name: 'Income Declaration Form', href: 'https://www.mca.gov.in/Ministry/pdf/CompaniesAct2013.pdf' },
+//     { name: 'Wealth Tax Form', href: 'https://incometaxindia.gov.in/Pages/downloads/wealth-tax-return.aspx' },
+//     { name: 'ServiceTax Form', href: 'https://www.centralexcisechennai.gov.in/chennai2/Trade%20Notices/Trade%20Notices%20ST/forms-st.htm' },
+//     { name: 'NBFCs Tax Form', href: 'https://advocatekhoj.com/library/legalforms/formsfor/index.php?Fno=nbfcforms.php' },
+//     { name: 'LLP Winding up Form', href: 'https://www.mca.gov.in/LLP/pdf/llp_winding_up_rules_corrected.pdf' }
+//   ]
+// };
+
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-
 import { ChevronDown, Menu, X } from 'lucide-react';
 
-const images = [
-  '/b1.jpg', 
-  '/b2.jpg', 
-  '/b3.jpg',
-  '/b4.jpg'
-];
+const images = ['/b1.jpg', '/b2.jpg', '/b3.jpg', '/b4.jpg'];
 
 const links = [
-  { name: 'Home', href: '/' }, 
-  { name: 'Team', href: '/team' }, 
+  { name: 'Home', href: '/' },
+  { name: 'Team', href: '/team' },
   { name: 'About Us', href: '/about-us' },
   { name: 'Contact Us', href: '/contact-us' },
   { name: 'Query', href: '/query' },
@@ -54,7 +76,7 @@ const dropdownLinks = {
 const Navbar = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdowns, setOpenDropdowns] = useState({});
+  const [openDropdown, setOpenDropdown] = useState(null);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -67,29 +89,31 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsMenuOpen(false);
+    setOpenDropdown(null);
   }, [pathname]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const toggleDropdown = (category) => {
-    setOpenDropdowns(prev => ({...prev, [category]: !prev[category]}));
-  };
-
   const handleNavigation = (href) => {
     router.push(href);
     setIsMenuOpen(false);
+    setOpenDropdown(null);
+  };
+
+  const toggleDropdown = (category) => {
+    setOpenDropdown(openDropdown === category ? null : category);
   };
 
   const renderMobileDropdown = (category) => (
     <div key={category} className="mb-2">
       <button 
-        onClick={() => toggleDropdown(category)} 
+        onClick={() => toggleDropdown(category)}
         className="flex items-center justify-between w-full text-white py-2"
       >
         {category}
-        <ChevronDown className={`ml-2 transform ${openDropdowns[category] ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`ml-2 transform ${openDropdown === category ? 'rotate-180' : ''}`} />
       </button>
-      {openDropdowns[category] && (
+      {openDropdown === category && (
         <div className="pl-4">
           {dropdownLinks[category].map((item, index) => (
             <button key={index} onClick={() => handleNavigation(item.href)} className="block py-1 text-white w-full text-left">
@@ -129,7 +153,7 @@ const Navbar = () => {
           </div>
         ))}
       </div>
-      <div className="bg-black p-4 relative">
+      <nav className="bg-black p-4 relative">
         <div className="lg:hidden">
           <button onClick={toggleMenu} className="text-white">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -147,45 +171,41 @@ const Navbar = () => {
           </div>
         )}
 
-        <div className="hidden lg:flex justify-between flex-wrap items-center overflow-x-auto scrollbar-hide">
+        <div className="hidden lg:flex lg:flex-wrap justify-between items-center">
           {links.map((link, index) => (
-            <Link key={index} href={link.href} className="text-white mx-0.5 hover:text-gray-300 whitespace-nowrap">
+            <Link key={index} href={link.href} className="text-white mx-2 hover:text-gray-300 whitespace-nowrap">
               {link.name}
             </Link>
           ))}
           {Object.entries(dropdownLinks).map(([category, items]) => (
-            <div key={category} className="relative group">
-              <button className="text-white mx-0.5 flex items-center hover:text-gray-300 whitespace-nowrap">
-                {category} <ChevronDown className="ml-0.5" />
+            <div key={category} className="relative group mx-2">
+              <button 
+                onClick={() => toggleDropdown(category)}
+                className="text-white flex items-center hover:text-gray-300 whitespace-nowrap focus:outline-none"
+              >
+                {category} <ChevronDown className={`ml-1 transform ${openDropdown === category ? 'rotate-180' : ''}`} />
               </button>
-              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out">
-                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                  {items.map((item, index) => (
-                    <Link 
-                      key={index} 
-                      href={item.href} 
-                      target='_blank'
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" 
-                      role="menuitem"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+              {openDropdown === category && (
+                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                  <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                    {items.map((item, index) => (
+                      <Link 
+                        key={index} 
+                        href={item.href} 
+                        target='_blank'
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" 
+                        role="menuitem"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </div>
-      </div>
-      <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
+      </nav>
     </div>
   );
 };
